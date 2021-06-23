@@ -1,0 +1,36 @@
+
+(function() {
+	if(navigator.webdriver) { return; }
+var ref = encodeURIComponent((parent !== window) ? document.referrer : document.location);
+
+var i = document.createElement("img");
+i.src = "https://aa.agkn.com/adscores/g.pixel?sid=9212284628&ip=157.33.141.225&page=" + ref;
+i.height=0;i.width=0;i.style="display:none; visibility: hidden";
+document.body.appendChild(i);
+
+
+var l = document.createElement("img");
+l.src = "https://idsync.rlcdn.com/425276.gif?partner_uid=4d35402d019c4aa342426669fecac977"
+l.height=0;l.width=0;l.style="display:none; visibility: hidden";
+document.body.appendChild(l);
+
+
+var p = document.createElement("img");
+p.src = "https://px.powerlinks.com/user/sync/ssps?userId=4d35402d019c4aa342426669fecac977&sourceId=017009c9-fef3-11e8-a038-127202fb7690&sync=1&rurl=https%3A%2F%2Fdata.dianomi.com%2Ffrontend%2Fuser_map%3Fprovider%3Dpowerlinks%26id%3D%24%7BUSER%7D";
+p.height=0;p.width=0;p.style="display: none; visibility: hidden";
+document.body.appendChild(p)
+
+var r = new XMLHttpRequest();
+r.withCredentials = true;
+var s ="r=" + ref;
+if (!(typeof dianomi_tag_params_0x5BC7576AC8CF11EABBAEBB524AEC4CEF === "undefined")) {
+	for (var property in dianomi_tag_params_0x5BC7576AC8CF11EABBAEBB524AEC4CEF) {
+		if (dianomi_tag_params_0x5BC7576AC8CF11EABBAEBB524AEC4CEF.hasOwnProperty(property)  && dianomi_tag_params_0x5BC7576AC8CF11EABBAEBB524AEC4CEF[property] !== null) {
+			s += "&" + property + "=" + encodeURIComponent(dianomi_tag_params_0x5BC7576AC8CF11EABBAEBB524AEC4CEF[property]);
+		}
+	}
+}
+
+r.open("GET", "https://data.dianomi.com/frontend/pixel?" + s, true);
+r.send();
+})();

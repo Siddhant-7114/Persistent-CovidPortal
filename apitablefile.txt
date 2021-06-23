@@ -1,0 +1,35 @@
+<script>
+	var myArray = []
+	
+
+	$.ajax({
+		method:'GET',
+		url:'https://covid2019-api.herokuapp.com/v2/current',
+		success:function(response){
+			myArray = response.data
+			buildTable(myArray)
+			console.log(myArray)
+		}
+	})
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].location}</td>
+							<td>${data[i].confirmed}</td>
+							<td>${data[i].deaths}</td>
+                            <td>${data[i].recovered}</td>
+                            <td>${data[i].active}</td>
+                            
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
